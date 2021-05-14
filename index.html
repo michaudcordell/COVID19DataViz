@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://d3js.org/d3.v5.min.js"></script>
+	<script src="https://d3js.org/d3-geo-projection.v3.min.js"></script>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+
+	<title>Sizing Up the Pandemic</title>
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+	<link href="css/style.css" rel="stylesheet" />
+	<link rel="shortcut icon" type="image/png" href="favicon-32x32.png"/>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="page-header">
+					<h1>
+						Sizing Up the Pandemic <small>Vitamin D3</small>
+					</h1>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+
+				<div class="row">
+					<div class="col-sm-6">
+						<span class="badge badge-default" style="font-size:18px">Dataset</span>
+						<div class="btn-group btn-group-toggle" data-toggle="buttons" id="datasetRadiosGroup">
+							<label class="btn btn-primary active" style="width:33%">
+								<input type="radio" name="datasetRadios" id="datasetRadios1" autocomplete="off" checked>New Cases
+							</label>
+							<label class="btn btn-primary" style="width:33%">
+								<input type="radio" name="datasetRadios" id="datasetRadios2" autocomplete="off">Total Cases
+							</label>
+							<label class="btn btn-primary" style="width:34%">
+								<input type="radio" name="datasetRadios" id="datasetRadios3" autocomplete="off">Deaths
+							</label>
+						</div>
+					</div>
+
+					<div class="col-sm-6">
+						<span class="badge badge-default" style="font-size:18px">Dataset Adjustment</span>
+						<div class="btn-group btn-group-toggle" data-toggle="buttons" id="adjustmentRadiosGroup">
+							<label class="btn btn-primary active" style="width:50%">
+								<input type="radio" name="adjustmentRadios" id="adjustmentRadios1" onclick="adjustmentRadioClick(this);" autocomplete="off" checked> Unadjusted
+							</label>
+							<label class="btn btn-primary" style="width:50%">
+								<input type="radio" name="adjustmentRadios" id="adjustmentRadios2" onclick="adjustmentRadioClick(this);" autocomplete="off"> Per 1,000
+							</label>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-sm-12">
+						<span class="badge badge-default" style="font-size:18px">Date</span>
+						<div class="d-flex my-4">
+							<div class="w-75">
+								<input type="range" class="custom-range" id="yearRangeSelector" min="0" max="35" step="1" default="17" value="17" style="width:100%">
+							</div>
+							<span class="font-weight-bold text-primary ml-2 w-25 yearRangeSelectorValueSpan" style="font-size:18px">Week of Jul. 19, 2020</span>
+						</div>
+					</div>
+				</div>
+
+
+				<div class ="row justify-content-left">
+					<div id="mapCol" class="col-sm-9 mapContainer">
+					</div>
+					<div id="mapKeyCol" class="col-sm-3 mapKeyContainer">
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="row">
+			<div id="lineChartCol" class="col-sm-6">
+			</div>
+			<div id="pieChartCol" class="col-sm-6">
+			</div>
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script src="js/index.js"></script>
+</body>

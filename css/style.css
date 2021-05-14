@@ -1,0 +1,56 @@
+#mapCol {
+    border: 2px solid gray;
+}
+
+#lineChartCol {
+    border: 2px solid gray;
+}
+
+#pieChartCol {
+    border: 2px solid gray;
+}
+
+#mapKeyCol {
+    border: 2px solid gray;
+}
+
+.stateTooltip {	
+    position: absolute;			
+    text-align: center;			
+    width: 200px;					
+    height: 100px;					
+    padding: 2px;				
+    font: 20px sans-serif;	
+    background: white;	
+    border: 2px solid gray;	
+    border-radius: 8px;			
+    pointer-events: none;			
+}
+
+#datasetRadiosGroup {
+    width: 75%;
+}
+
+#adjustmentRadiosGroup {
+    width: 65%;
+}
+
+.mapContainer {
+    overflow: hidden;
+}
+
+.filledGrad {
+    fill: url(#mapKeyGradient);
+}
+
+#mapKeyTitle {
+    font-size: 28px;
+    text-anchor: middle;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+}
+
+.mapKeyLabel {
+    font-size: 16px;
+    text-anchor: middle;
+}
